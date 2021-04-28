@@ -1,9 +1,6 @@
 class CartsController < ApplicationController
 
   def show
-    if enhanced_cart.empty?
-      render '_msg'
-    end
   end
 
   def add_item
