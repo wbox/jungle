@@ -8,11 +8,8 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       redirect_to '/'
-      # redirect_to :root, notice: 'Account created successfuly'
     else
-      # flash[:error] = 'An error occured'
       redirect_to '/signup'
-      # render 'new'
     end
 
   end
