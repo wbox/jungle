@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   get 'signup' => 'users#new'
-  get '/users' => 'users#create'
+  post '/users' => 'users#create'
 
   # These routes are for showing a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'
