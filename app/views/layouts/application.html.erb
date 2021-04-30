@@ -12,12 +12,13 @@
 
   <main class="container">
 
+  <% if active_sale? %>
   <p class="alert alert-info">
     There's an active sale <%= "Back to school" %> sale going on!
-    Everthing is <%= 15 %>% off!
+    <strong>Everthing is <%= 15 %>% off!</strong>
   </p>
-
-    <%= yield %>
+  <% end %>
+  <%= yield %>
   </main>
 
   <%= yield :end_of_body %>
