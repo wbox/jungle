@@ -28,10 +28,8 @@
             <% end %>
           </ul>
         </li>
-        <% if @current_user %>
-        <li class="login">
-         Signed in as <%= current_user.name %>
-        </li>
+        <% if current_user %>
+               
         <li>
         <%= link_to "Logout", '/logout' %>
         </li>
@@ -45,11 +43,13 @@
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
-            <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
             <span class="caret"></span>
+            <span class="text-danger"><%= fa_icon 'lock', text: current_user.name %></span>
+            <!--<span class="text-danger"><%#= fa_icon 'lock', text: 'Admin' %></span> -->
+          <%# end %>
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to 'Dashboard', [:admin, :root] %></li>
@@ -57,6 +57,7 @@
             <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+          <% end %>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)

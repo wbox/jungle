@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :create]
   end
 
+  # Route resources for session controller
+  resources :sessions, only: [:new, :create, :destroy]
+
   get 'signup' => 'users#new'
   post '/users' => 'users#create'
 
