@@ -1,7 +1,7 @@
 module SalesHelper
 
   def active_sale?
-    true
+    Sale.active.any?
   end
 
 end
