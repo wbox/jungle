@@ -1,7 +1,7 @@
 class Admin::SalesController < ApplicationController
 
   def index
-    render: index
+    render :index
   end
 
 end
