@@ -64,6 +64,13 @@ RSpec.describe User, type: :model do
       expect(user.authenticate_with_credentials("LUCASRIBAS1@email.com","123456")).to be_truthy
     end
 
+    it "successfuly authenticate if spaces were added before and after the email address" do
+      user = User.create({first_name: 'Lucas', last_name: 'Ribas', password: '123456', password_confirmation: '123456', email: 'lucasribas1@email.com'})
+      user.valid?
+      expect(user.authenticate_with_credentials("   lucasribas1@email.com    ","123456")).to be_truthy
+    end
+
+
   end
 
 
