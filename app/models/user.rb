@@ -5,15 +5,19 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   validates :password, presence: true
-  validates :password, length: { in: 3..20 }
-  
+  validates :password, length: { in: 3..10 }
   validates :password_confirmation, presence: true
   
   validates :email, presence: true
-  validates :email, { case_sensitive: false }
-  validates :email, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
 
-
-
+  # def authenticate_with_credentials(email, password)
+  #   user = User.find_by_email(email.strip.downcase); 
+  #   if user && user.authenticate(password)
+  #     return user
+  #   else 
+  #     return nil
+  #   end
+  # end
 
 end
