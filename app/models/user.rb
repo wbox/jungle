@@ -11,13 +11,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
 
-  # def authenticate_with_credentials(email, password)
-  #   user = User.find_by_email(email.strip.downcase); 
-  #   if user && user.authenticate(password)
-  #     return user
-  #   else 
-  #     return nil
-  #   end
-  # end
+  def authenticate_with_credentials(email, password)
+    user = User.find_by_email(email.strip.downcase); 
+    if user && user.authenticate(password)
+      return user
+    else 
+      return nil
+    end
+  end
 
 end
