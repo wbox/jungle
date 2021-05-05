@@ -4,6 +4,8 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if !enhanced_cart.empty? %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +50,20 @@
       <% end %>
     </div>
   </div>
+
+  <% else %>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><h3 class="alert">Your cart is empty. Please click <%= link_to 'here', :root %> to return to the home page.</h3></th>
+        
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
+  <% end %>
 
 </section>
