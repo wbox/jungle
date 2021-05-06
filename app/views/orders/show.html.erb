@@ -4,10 +4,6 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
-  <% @order.line_items.each do |item| %>
-  <%= item.product.name %>
-  <% end %>
-
    <% if @order %>
 
   <div class="panel panel-default items">
